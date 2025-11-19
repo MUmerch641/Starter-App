@@ -8,23 +8,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:my_app/main.dart';
+import 'package:starter_app/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Task list smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that our initial tasks are shown.
+    expect(find.text('Welcome to the demo app!'), findsOneWidget);
+    expect(find.text('Add your first task'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
+    // Tap the '+' icon to add a task.
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Now on add task screen, enter text and add.
+    await tester.enterText(find.byType(TextField), 'New Task');
+    await tester.tap(find.text('Add Task'));
+    await tester.pumpAndSettle();
+
+    // Verify that the new task is added.
+    expect(find.text('New Task'), findsOneWidget);
   });
 }

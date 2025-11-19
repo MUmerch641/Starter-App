@@ -1,6 +1,14 @@
-# my_app
+# Starter-App
 
-A new Flutter project.
+A demo Flutter starter app showcasing basic features like navigation, state management, and Material Design 3.
+
+## Features
+
+- Home screen with a list of tasks
+- Add new tasks
+- Mark tasks as completed
+- Navigate between screens
+- Modern UI with Material Design 3
 
 ## Getting Started
 
@@ -13,4 +21,4 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter development, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.# Starter-App
+samples, guidance on mobile development, and a full API reference.
